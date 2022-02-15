@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login title</title>
+<title>Register</title>
 </head>
 <body>
-<h1>Login Page</h1>
+
+<h1>Register Page</h1>
 
 </body>
 </html>

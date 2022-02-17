@@ -1,6 +1,8 @@
 package fr.eni.enchere.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,15 +20,35 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		getServletContext().getRequestDispatcher("/LoginPage.jsp").forward(request, response);
+		RequestDispatcher rd = null;
+		rd = request.getRequestDispatcher("/LoginPage.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		String creerUnCompte=request.getParameter("creerUnCompte");
+		String connexion=request.getParameter("connexion");
+		
+		String identifiant=request.getParameter("identifiant");
+		String motDePasse=request.getParameter("motDePasse");
+
+
+		
+		if(creerUnCompte!=null) {
+		
+		response.sendRedirect(request.getContextPath()+"/Register");
+		}
+		if(connexion!=null) {
+			
+			response.sendRedirect(request.getContextPath()+"/Register");
+			}
+		
+		
+	
 	}
 
 }

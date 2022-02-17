@@ -1,26 +1,32 @@
 package fr.eni.enchere.bo;
 
+import java.util.List;
+
 public class Utilisateur {
-	int noUtilisateur;
-	String peudo;
-	String nom;
-	String prenom;
-	String email;
-	int telephone;
-	String rue;
-	int codePostal;
-	String ville;
-	int motDePasse;
-	int credit;
-	String administrateur;
+	private int noUtilisateur;
+	private String pseudo;
+	private String nom;
+	private String prenom;
+	private String email;
+	private int telephone;
+	private String rue;
+	private String codePostal;
+	private String ville;
+	private String motDePasse;
+	private int credit;
+	private int administrateur;
+	private List<ArticleVendu> achete;
+	private List<ArticleVendu> vend;
+	private List<Enchere> encherit;
+	
 	public Utilisateur() {
 		super();
 	}
-	public Utilisateur(int noUtilisateur, String peudo, String nom, String prenom, String email, int telephone,
-			String rue, int codePostal, String ville, int motDePasse, int credit, String administrateur) {
+	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, int telephone,
+			String rue, String codePostal, String ville, String motDePasse, int credit, int administrateur) {
 		super();
 		this.noUtilisateur = noUtilisateur;
-		this.peudo = peudo;
+		this.pseudo = pseudo;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
@@ -32,17 +38,46 @@ public class Utilisateur {
 		this.credit = credit;
 		this.administrateur = administrateur;
 	}
+	public Utilisateur(String pseudo, String nom, String prenom, String email, int telephone, String rue, String codePostal,
+			String ville, String motDePasse, int credit, int administrateur) {
+		super();
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.motDePasse = motDePasse;
+		this.credit = credit;
+		this.administrateur = administrateur;
+	}
+
+	
+	public List<ArticleVendu> getAchete() {
+		return achete;
+	}
+	public void setAchete(List<ArticleVendu> achete) {
+		this.achete = achete;
+	}
+	public List<ArticleVendu> getVend() {
+		return vend;
+	}
+	public void setVend(List<ArticleVendu> vend) {
+		this.vend = vend;
+	}
 	public int getNoUtilisateur() {
 		return noUtilisateur;
 	}
 	public void setNoUtilisateur(int noUtilisateur) {
 		this.noUtilisateur = noUtilisateur;
 	}
-	public String getPeudo() {
-		return peudo;
+	public String getPseudo() {
+		return pseudo;
 	}
-	public void setPeudo(String peudo) {
-		this.peudo = peudo;
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
 	}
 	public String getNom() {
 		return nom;
@@ -74,10 +109,10 @@ public class Utilisateur {
 	public void setRue(String rue) {
 		this.rue = rue;
 	}
-	public int getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 	public String getVille() {
@@ -86,10 +121,10 @@ public class Utilisateur {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-	public int getMotDePasse() {
+	public String getMotDePasse() {
 		return motDePasse;
 	}
-	public void setMotDePasse(int motDePasse) {
+	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
 	}
 	public int getCredit() {
@@ -98,20 +133,29 @@ public class Utilisateur {
 	public void setCredit(int credit) {
 		this.credit = credit;
 	}
-	public String getAdministrateur() {
+	public int getAdministrateur() {
 		return administrateur;
 	}
-	public void setAdministrateur(String administrateur) {
+	public void setAdministrateur(int administrateur) {
 		this.administrateur = administrateur;
+	}
+	public List<Enchere> getEncherit() {
+		return encherit;
+	}
+	public void setEncherit(List<Enchere> encherit) {
+		this.encherit = encherit;
 	}
 	@Override
 	public String toString() {
-		return "Utilisateur [noUtilisateur=" + noUtilisateur + ", peudo=" + peudo + ", nom=" + nom + ", prenom="
+		return "Utilisateur [noUtilisateur=" + noUtilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
 				+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", codePostal="
 				+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
 				+ ", administrateur=" + administrateur + "]";
 	}
 	
-
+	
+	
+	
+	
+	
 }
-

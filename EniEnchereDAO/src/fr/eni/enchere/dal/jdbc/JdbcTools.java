@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import fr.eni.enchere.dal.Settings;
 
 
-
-
 public class JdbcTools {
 
 	

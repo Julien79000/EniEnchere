@@ -96,6 +96,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			rqt=cnx.prepareStatement(sqlSelectByLogin);
 			rqt.setString(1, username);
 			rqt.setString(2, password);
+			rs = rqt.executeQuery();
 			
 			if(rs.next()) {
 				

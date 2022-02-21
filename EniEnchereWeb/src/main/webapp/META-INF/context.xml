@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="jdbc/poolCnx"
+			  type="javax.sql.DataSource"	
+			  url="jdbc:sqlserver://127.0.0.1;databasename=ENCHERES_DB;"
+			  username="sa"
+			  password="Pa$$w0rd"
+			  maxActive="20"
+			  maxWaitMillis="3000"
+			  
+	>
+	
+	</Resource>
+
+</Context>

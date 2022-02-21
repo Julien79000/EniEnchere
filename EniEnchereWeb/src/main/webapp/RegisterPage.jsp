@@ -51,7 +51,7 @@
                                     <!-- Email -->
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="email">Email : </label>
-                                        <input type="email" id="email"  name="email"
+                                        <input type="text" id="email"  name="email"
                                             class="form-control form-control-lg" />
                                         
                                     </div>
@@ -72,7 +72,7 @@
                                     <!-- Code postal -->
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="codePostal" >Code postal : </label>
-                                        <input type="number" id="codePostal" name="codePostal"
+                                        <input type="text" id="codePostal" name="codePostal"
                                             class="form-control form-control-lg" />
                                        
                                     </div>

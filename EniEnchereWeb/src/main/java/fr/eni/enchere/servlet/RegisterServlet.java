@@ -1,6 +1,7 @@
 package fr.eni.enchere.servlet;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import fr.eni.enchere.bll.BLLFactory;
+import fr.eni.enchere.bll.EniEnchereReponse;
+import fr.eni.enchere.bll.utils.EniEnchereConstantes;
+import fr.eni.enchere.bo.Utilisateur;
 
 /**
  * Servlet implementation class Register
@@ -30,8 +36,43 @@ public class RegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		
+		HashMap<String, String> liste = new HashMap<String, String>();
+		String [] parametres= new String [] {"pseudo","nom","prenom","email","telephone","rue","codePostal","ville","motDePasse"};
+		
+		
+		for ( String param : parametres) {
+			
+			liste.put(param, request.getParameter(param));
+			
+		}
+		
+		
+		Utilisateur user = new Utilisateur(-1,liste.get("pseudo"),
+				liste.get("nom"),
+				liste.get("prenom"),liste.get("email"),Integer.parseInt(liste.get("telephone")),liste.get("rue"),
+				liste.get("codePostal"),liste.get("ville"),liste.get("motDePasse"),0,0			
+				
+				);
+		
+		
+		EniEnchereReponse reponse = BLLFactory.getInstance().getUtilisaterManager().insertUser(user);
+		
+		
+		if (reponse.getCodeResponse() == EniEnchereConstantes.CODE_SUCCESS) {
+			// Redirection accceil
+			response.sendRedirect("LoginServlet");
+		}
+		else {
+			// Error
+			response.sendRedirect("LoginServlet");
+		}
+		
+	
 	}
 
+
+	
 }
+

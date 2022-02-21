@@ -8,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.Session;
+
+import fr.eni.enchere.bll.BLLFactory;
+import fr.eni.enchere.dal.DALException;
 
 /**
  * Servlet implementation class LoginServlet
@@ -44,7 +48,32 @@ public class LoginServlet extends HttpServlet {
 		}
 		if(connexion!=null) {
 			
-			response.sendRedirect(request.getContextPath()+"/Register");
+			boolean succes=false;
+			
+			try {
+				
+			succes=	BLLFactory.getInstance().getUtilisaterManager().login(identifiant, motDePasse);
+			
+			if (succes) {
+				
+				
+				
+				
+			    response.sendRedirect("HomeServlet");
+
+				
+
+			}
+			
+			else {
+			    response.sendRedirect("RegisterServlet");
+
+				
+			}
+			} catch (DALException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			}
 		
 		

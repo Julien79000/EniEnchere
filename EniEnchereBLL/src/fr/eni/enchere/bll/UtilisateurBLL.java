@@ -34,5 +34,11 @@ public class UtilisateurBLL {
 		return reponse;
 		
 	}
+	
+	public Utilisateur selectById(int id) {
+		
+		return DAOFactory.getUtilisateurDAO().selectById(id);
+		
+	}
 
 }

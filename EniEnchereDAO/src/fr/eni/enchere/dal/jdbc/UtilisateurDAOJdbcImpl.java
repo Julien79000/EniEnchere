@@ -18,6 +18,8 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	private static final String sqlUpdate = "UPDATE utilisateurs set pseudo=?,nom=?,prenom=?,email=?,telephone=?,rue=?,code_postal=?,ville=?,mot_de_passe=?,credit=?,administrateur=? where no_utilisateur=?";
 	private static final String sqlSelectById = "SELECT no_utilisateur, pseudo, nom,prenom, email, telephone, rue, code_postal, ville, mot_de_passe,credit,administrateur " +
 			" from utilisateurs WHERE no_utilisateur = ?";
+	private static final String sqlSelectByIdentifiant = "SELECT no_utilisateur, pseudo, nom,prenom, email, telephone, rue, code_postal, ville, mot_de_passe,credit,administrateur " +
+			" from utilisateurs WHERE email = ?";
 	private static final String sqlSelectAll = "SELECT no_utilisateur, pseudo, nom,prenom, email, telephone, rue, code_postal, ville, mot_de_passe,credit,administrateur " +
 			" from utilisateurs";
 	private static final String sqlSelectByLogin = "select no_utilisateur, pseudo, nom, prenom, email" +
@@ -306,6 +308,56 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		
 		
 		return liste;
+	}
+	
+	public Utilisateur selectByIdentifiant(String identifiant) {
+		Connection cnx=null;
+		PreparedStatement rqt=null;
+		ResultSet rs=null;
+		Utilisateur user=null;
+		
+		try {
+			cnx=JdbcTools.getConnection();
+			rqt=cnx.prepareStatement(sqlSelectByIdentifiant);
+			rqt.setString(1, identifiant);
+			
+			rs=rqt.executeQuery();
+			if(rs.next()) {
+				user=new Utilisateur(rs.getInt("no_utilisateur"),
+						rs.getString("pseudo"),
+						rs.getString("nom"),
+						rs.getString("prenom"),
+						rs.getString("email"),
+						rs.getInt("telephone"),
+						rs.getString("rue"),
+						rs.getString("code_postal"),
+						rs.getString("ville"),
+						rs.getString("mot_de_passe"),
+						rs.getInt("credit"),
+						rs.getInt("administrateur"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				if (rs != null){
+					rs.close();
+				}
+				if (rqt != null){
+					rqt.close();
+				}
+				if(cnx!=null){
+					cnx.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+		
+		return user;
 	}
 
 

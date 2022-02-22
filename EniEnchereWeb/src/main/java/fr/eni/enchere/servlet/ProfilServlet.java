@@ -9,19 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
+
+import fr.eni.enchere.bll.BLLFactory;
+import fr.eni.enchere.bll.UtilisateurBLL;
+import fr.eni.enchere.bo.Utilisateur;
 
 /**
- * Servlet implementation class HomeServlet
+ * Servlet implementation class ProfilServlet
  */
-@WebServlet("/HomeServlet")
-public class HomeServlet extends HttpServlet {
+@WebServlet("/ProfilServlet")
+public class ProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomeServlet() {
+    public ProfilServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,12 +33,22 @@ public class HomeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("/home.jsp");
-		rd.forward(request, response);
-		
+	HttpSession session=request.getSession();
+	
+	String id=(String) session.getAttribute("identifiant");
+	
+	
+	Utilisateur user =BLLFactory.getInstance().getUtilisaterManager().selectByIdentifiant(id);
+	
+	
+	request.setAttribute("user", user);
+	
+	
+	getServletContext().getRequestDispatcher("/AfficherProfil.jsp").forward(request, response);
+	
+	
+	
+	
 	}
 
 	/**

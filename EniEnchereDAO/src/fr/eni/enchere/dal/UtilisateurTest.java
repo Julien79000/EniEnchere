@@ -41,6 +41,9 @@ public class UtilisateurTest {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				
+				Utilisateur user2 = utilisateurDAO.selectByIdentifiant("julien@gmail.com");
+				System.out.println("Sélection de l'article par identifiant  : " + user2.toString() );
 			
 				
 				

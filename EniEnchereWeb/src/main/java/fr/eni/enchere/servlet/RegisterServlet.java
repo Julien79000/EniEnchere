@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.enchere.bll.BLLFactory;
 import fr.eni.enchere.bll.EniEnchereReponse;
@@ -55,6 +56,8 @@ public class RegisterServlet extends HttpServlet {
 				liste.get("codePostal"),liste.get("ville"),liste.get("motDePasse"),0,0			
 				
 				);
+		 HttpSession session = request.getSession();
+	        session.setAttribute("userProfil", user);
 		
 		
 		EniEnchereReponse reponse = BLLFactory.getInstance().getUtilisaterManager().insertUser(user);

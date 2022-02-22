@@ -5,7 +5,12 @@ import java.util.List;
 public class Categorie {
 	private int noCategorie;
 	private String libelle;
-	private List<ArticleVendu> categorieArticle;
+	public Categorie(String libelle) {
+		super();
+		this.libelle = libelle;
+	}
+
+	private List<ArticlesVendus> categorieArticle;
 	
 	
 	public Categorie() {
@@ -19,14 +24,14 @@ public class Categorie {
 	}
 	
 
-	public Categorie(String libelle, List<ArticleVendu> categorieArticle) {
+	public Categorie(String libelle, List<ArticlesVendus> categorieArticle) {
 		super();
 		this.libelle = libelle;
 		this.categorieArticle = categorieArticle;
 	}
 	
 
-	public Categorie(int noCategorie, String libelle, List<ArticleVendu> categorieArticle) {
+	public Categorie(int noCategorie, String libelle, List<ArticlesVendus> categorieArticle) {
 		super();
 		this.noCategorie = noCategorie;
 		this.libelle = libelle;
@@ -46,10 +51,10 @@ public class Categorie {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-	public List<ArticleVendu> getCategorieArticle() {
+	public List<ArticlesVendus> getCategorieArticle() {
 		return categorieArticle;
 	}
-	public void setCategorieArticle(List<ArticleVendu> categorieArticle) {
+	public void setCategorieArticle(List<ArticlesVendus> categorieArticle) {
 		this.categorieArticle = categorieArticle;
 	}
 

@@ -15,8 +15,8 @@ public class Utilisateur {
 	private String motDePasse;
 	private int credit;
 	private int administrateur;
-	private List<ArticleVendu> achete;
-	private List<ArticleVendu> vend;
+	private List<ArticlesVendus> achete;
+	private List<ArticlesVendus> vend;
 	private List<Enchere> encherit;
 	
 	public Utilisateur() {
@@ -55,16 +55,16 @@ public class Utilisateur {
 	}
 
 	
-	public List<ArticleVendu> getAchete() {
+	public List<ArticlesVendus> getAchete() {
 		return achete;
 	}
-	public void setAchete(List<ArticleVendu> achete) {
+	public void setAchete(List<ArticlesVendus> achete) {
 		this.achete = achete;
 	}
-	public List<ArticleVendu> getVend() {
+	public List<ArticlesVendus> getVend() {
 		return vend;
 	}
-	public void setVend(List<ArticleVendu> vend) {
+	public void setVend(List<ArticlesVendus> vend) {
 		this.vend = vend;
 	}
 	public int getNoUtilisateur() {

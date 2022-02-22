@@ -36,6 +36,8 @@ public interface UtilisateurDAO {
 		//Se connecter
 		public boolean login(String username, String password) throws DALException;
 		
+		public Utilisateur selectByIdentifiant(String identifiant);
+		
 		
 
 	

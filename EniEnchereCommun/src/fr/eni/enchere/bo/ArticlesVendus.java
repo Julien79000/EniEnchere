@@ -1,9 +1,8 @@
 package fr.eni.enchere.bo;
 
 import java.time.LocalDate;
-import java.util.Date;
 
-public class ArticleVendu {
+public class ArticlesVendus {
 	int noArticle;
 	private	String nomArticle;
 	private	String description;
@@ -18,11 +17,11 @@ public class ArticleVendu {
 	private Categorie categorie;
 	
 	
-	public ArticleVendu() {
+	public ArticlesVendus() {
 		super();
 	}
 	
-	public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEmbauche,
+	public ArticlesVendus(int noArticle, String nomArticle, String description, LocalDate dateDebutEmbauche,
 			LocalDate dateFinEmbauche, int miseAPrix, int prixVente, String etatVente, Retrait lieuRetrait) {
 		super();
 		this.noArticle = noArticle;
@@ -38,7 +37,20 @@ public class ArticleVendu {
 	
 	
 
-	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEmbauche, LocalDate dateFinEmbauche,
+	public ArticlesVendus(String nomArticle, String description, LocalDate dateDebutEmbauche, LocalDate dateFinEmbauche,
+			int miseAPrix, int prixVente, Utilisateur utilisateur, Categorie categorie) {
+		super();
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEmbauche = dateDebutEmbauche;
+		this.dateFinEmbauche = dateFinEmbauche;
+		this.miseAPrix = miseAPrix;
+		this.prixVente = prixVente;
+		this.utilisateur = utilisateur;
+		this.categorie = categorie;
+	}
+
+	public ArticlesVendus(String nomArticle, String description, LocalDate dateDebutEmbauche, LocalDate dateFinEmbauche,
 			int miseAPrix, int prixVente, String etatVente, Retrait lieuRetrait) {
 		super();
 		this.nomArticle = nomArticle;

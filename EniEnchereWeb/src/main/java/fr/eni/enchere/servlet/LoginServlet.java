@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
 import fr.eni.enchere.bll.BLLFactory;
+import fr.eni.enchere.bo.Utilisateur;
 import fr.eni.enchere.dal.DALException;
 
 /**
@@ -46,9 +48,10 @@ public class LoginServlet extends HttpServlet {
 		
 		response.sendRedirect(request.getContextPath()+"/Register");
 		}
+		boolean succes=false;
 		if(connexion!=null) {
 			
-			boolean succes=false;
+			
 			
 			try {
 				
@@ -56,9 +59,18 @@ public class LoginServlet extends HttpServlet {
 			
 			if (succes) {
 				
+				Utilisateur user=BLLFactory.getInstance().getUtilisaterManager().selectByIdentifiant(identifiant);
 				
 				
 				
+				
+		        HttpSession session = request.getSession();
+		        
+		        
+		        session.setAttribute("user", user);
+		        session.setAttribute("identifiant", identifiant);
+		        
+					
 			    response.sendRedirect("HomeServlet");
 
 				
@@ -66,7 +78,7 @@ public class LoginServlet extends HttpServlet {
 			}
 			
 			else {
-			    response.sendRedirect("RegisterServlet");
+			    response.sendRedirect("LoginServlet");
 
 				
 			}
@@ -74,8 +86,7 @@ public class LoginServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			}
-		
+			} 
 		
 	
 	}

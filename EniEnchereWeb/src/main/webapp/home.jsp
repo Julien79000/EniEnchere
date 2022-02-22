@@ -1,3 +1,4 @@
+<%@page import="fr.eni.enchere.bo.Utilisateur"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
     <!DOCTYPE html>
     <html lang="fr">
@@ -6,7 +7,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="bootstrap.min.css">
+         <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        
         <title>home</title>
     </head>
 
@@ -22,18 +24,19 @@
                                     <header class="container">
                                         <div class="row">
                                             <h2 class="titre col-12">ENI-Enchères</h2>
-                                            <nav class="col-12">
-                                                <p><a
-                                                        href="<%=request.getContextPath() %>/LoginServlet">S'inscrire</a>-<a
-                                                        href="<%=request.getContextPath()%>/Register">Se connecter</a>
-                                                </p>
-                                            </nav>
+                                             <%if (session.getAttribute("user")==null) {%>
+                                         
+                                         <%@include file="HeaderHome.jsp"%>
+                                         
+                                         <%} else { %>
+                                          <%@include file="HeaderConnecte.jsp"%>
+                                          <%} %>
 
                                         </div>
                                     </header>
                                     <aside class="row">
                                         <p class="col-12">Filtres :</p>
-                                        <p class="row">Catégories
+                                        <p class="row">Catégories</p>
                                         <FORM class="col-8">
                                             <SELECT name="nom" size="1">
                                                 <OPTION>lundi
@@ -43,10 +46,18 @@
                                                 <OPTION>vendredi
                                             </SELECT>
                                         </FORM>
-                                        </p>
+                                        
                                         <div class="row">
                                             <input id="searchbar" onkeyup="search_animal()" type="text" name="search"
                                                 placeholder="Le nom de l'article contient">
+                                        </div>
+                                        
+                                      
+                                        
+                                        
+                                        
+                                        
+                                        
                                         </div>
                                     </aside>
 

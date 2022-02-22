@@ -6,10 +6,10 @@ public class Retrait {
 	private String rue;
 	private int code_postal;
 	private String ville;
-	private List<ArticleVendu> article;
+	private List<ArticlesVendus> article;
 	
 	
-	public Retrait(String rue, int code_postal, String ville, List<ArticleVendu> article) {
+	public Retrait(String rue, int code_postal, String ville, List<ArticlesVendus> article) {
 		super();
 		this.rue = rue;
 		this.code_postal = code_postal;
@@ -44,10 +44,10 @@ public class Retrait {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-	public List<ArticleVendu> getArticle() {
+	public List<ArticlesVendus> getArticle() {
 		return article;
 	}
-	public void setArticle(List<ArticleVendu> article) {
+	public void setArticle(List<ArticlesVendus> article) {
 		this.article = article;
 	}
 	@Override

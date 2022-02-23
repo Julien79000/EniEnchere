@@ -1,6 +1,8 @@
 package fr.eni.enchere.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,29 +25,34 @@ public class DeleteUserServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
+
+		HttpSession session = request.getSession();
+		Utilisateur user= (Utilisateur) session.getAttribute("user");
+		
+       
+	
+	BLLFactory.getInstance().getUtilisaterManager().delete(user.getNoUtilisateur());
+	
+	session.removeAttribute("user");
+	session.invalidate();
+	
+	RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
+	dispatcher.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+				doGet(request, response);
 		
-		HttpSession session = request.getSession();
-	    
-	    
-		
-		Utilisateur user= (Utilisateur) session.getAttribute("user");
-		
-		
-		
-
-        session.setAttribute("user", user);
 	
-	
-	BLLFactory.getInstance().getUtilisaterManager().delete(user.getNoUtilisateur());
-	response.sendRedirect("LoginServlet");
+	 
+	 
+	 
 		
 	}
 

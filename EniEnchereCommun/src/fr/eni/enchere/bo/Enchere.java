@@ -23,6 +23,13 @@ public class Enchere {
 	}
 
 
+	public Enchere(LocalDate dateEnchere, int montant_enchere) {
+		super();
+		this.dateEnchere = dateEnchere;
+		this.montant_enchere = montant_enchere;
+	}
+
+
 	public LocalDate getDateEnchere() {
 		return dateEnchere;
 	}

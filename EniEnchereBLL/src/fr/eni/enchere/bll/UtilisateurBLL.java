@@ -46,5 +46,28 @@ public class UtilisateurBLL {
 		return DAOFactory.getUtilisateurDAO().selectByIdentifiant(identifiant);
 		
 	}
+	public void update(Utilisateur data) {
+		
+		 try {
+			DAOFactory.getUtilisateurDAO().update(data);
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void delete(int id) {
+		try {
+			DAOFactory.getUtilisateurDAO().delete(id);
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+
 
 }

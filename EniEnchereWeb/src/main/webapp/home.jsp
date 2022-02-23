@@ -36,7 +36,7 @@
                                     </header>
                                     <aside class="row">
                                         <p class="col-12">Filtres :</p>
-                                        <p class="row">Catégories</p>
+                                        <p class="row">Catégories
                                         <FORM class="col-8">
                                             <SELECT name="nom" size="1">
                                                 <OPTION>lundi
@@ -46,7 +46,7 @@
                                                 <OPTION>vendredi
                                             </SELECT>
                                         </FORM>
-                                        
+                                        </p>
                                         <div class="row">
                                             <input id="searchbar" onkeyup="search_animal()" type="text" name="search"
                                                 placeholder="Le nom de l'article contient">

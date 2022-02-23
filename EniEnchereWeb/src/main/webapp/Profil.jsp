@@ -30,105 +30,113 @@
                                 <h2 class="text-uppercase text-center mb-5">Créer un compte</h2>
                                 
 
-								 <form method="post" action="<%=request.getContextPath()%>/Register">
+								 <form method="post" action="<%=request.getContextPath()%>/ProfilModify">
 								 
-								 <%session.getAttribute("user"); %>
+								
 								 
 								 
                                     <!-- Pseudo -->
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="pseudo" >Pseudo : </label>
-                                        <input type="text" id="pseudo" name="pseudo"  value="<%=request.getParameter("pseudo") %>" 
+                                        <label class="form-label" for="pseudo" ><b>Pseudo : </b> </label>
+                                        <input type="text" id="pseudo" name="pseudo"  value="${user.pseudo}" 
                                         class="form-control form-control-lg" />
                                         
                                     </div>
                                     <!-- Nom -->
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="nom" >Nom : </label>
-                                        <input type="text" id="nom" name="nom" value="<%=request.getParameter("nom") %>"
+                                        <label class="form-label" for="nom" ><b>Nom :</b>  </label>
+                                        <input type="text" id="nom" name="nom" value="${user.nom}"
                                         class="form-control form-control-lg" />
                                         
                                     </div>
                                     <!-- Prenom -->
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="prenom" >Prenom : </label>
-                                        <input type="text" id="prenom" name="prenom" value="<%=request.getParameter("prenom") %>"
+                                        <label class="form-label" for="prenom" ><b>Prenom :</b>  </label>
+                                        <input type="text" id="prenom" name="prenom" value="${user.prenom}"
                                             class="form-control form-control-lg" />
                                         
                                     </div>
                                     <!-- Email -->
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="email">Email : </label>
-                                        <input type="text" id="email"  name="email" value="<%=request.getParameter("email") %>"
+                                        <label class="form-label" for="email"><b>Email : </b> </label>
+                                        <input type="text" id="email"  name="email" value="${user.email}"
                                             class="form-control form-control-lg" />
                                         
                                     </div>
                                     <!-- Telephone -->
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="telephone" >Teléphone : </label>
-                                        <input type="tel" id="telephone" name="telephone" value="<%=request.getParameter("telephone") %>"
+                                        <label class="form-label" for="telephone" ><b>Teléphone :</b>  </label>
+                                        <input type="tel" id="telephone" name="telephone" value="${user.telephone}"
                                             class="form-control form-control-lg" />
                                        
                                     </div>
                                     <!-- Rue -->
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="rue" >Rue : </label>
-                                        <input type="text" id="rue" name="rue" value="<%=request.getParameter("rue") %>"
+                                        <label class="form-label" for="rue" ><b>Rue :</b>  </label>
+                                        <input type="text" id="rue" name="rue" value="${user.rue}"
                                             class="form-control form-control-lg" />
                                        
                                     </div>
                                     <!-- Code postal -->
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="codePostal" >Code postal : </label>
-                                        <input type="text" id="codePostal" name="codePostal" value="<%=request.getParameter("codePostal") %>"
+                                        <label class="form-label" for="codePostal" ><b>Code postal :</b>  </label>
+                                        <input type="text" id="codePostal" name="codePostal" value="${user.codePostal}"
                                             class="form-control form-control-lg" />
                                        
                                     </div>
                                     <!-- Ville -->
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="ville" >Ville : </label>
-                                        <input type="text" id="ville" name="ville" value="<%=request.getParameter("ville") %>"
+                                        <label class="form-label" for="ville" ><b>Ville :</b> </label>
+                                        <input type="text" id="ville" name="ville" value="${user.ville}"
                                             class="form-control form-control-lg" />
                                         
                                     </div>
                                     <!-- Mot de passe -->
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="motDePasse" >Mot de passe : </label>
-                                        <input type="password" id="motDePasse" name="motDePasse" value="<%=request.getParameter("motDePasse") %>"
+                                        <label class="form-label" for="motDePasse" ><b>Mot de passe :</b> </label>
+                                        <input type="password" id="motDePasse" name="motDePasse" value="${user.motDePasse}"
                                             class="form-control form-control-lg" />
                                        
                                     </div>
                                     <!-- Confirmation Mot de passe -->
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="motDePasseRepeat" >Confirmation : </label>
-                                        <input type="password" id="motDePasseRepeat" name="motDePasseRepeat" value="<%=request.getParameter("motDePasseRepeat") %>"
+                                        <label class="form-label" for="motDePasseRepeat" ><b>Confirmation :</b> </label>
+                                        <input type="password" id="motDePasseRepeat" name="motDePasseRepeat" value="${user.motDePasse}"
                                             class="form-control form-control-lg" />
                                         
                                     </div>
+                                 <p id="credit">
+					                           <b>Vous avez ${user.credit} crédits</b>
+				</p>
                                    
                                     <div class="container-fluid">
                                         <div class="row">
-
-                                            <button class="col-6 btn btn-primary" type="submit"
-                                                class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Créer</button>
-
-
-
-                                            <button class="col-6 btn btn-secondary" type="submit"
-                                                class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Annuler</button>
-
+                                        
+                                            
+                                            <button class="col-3 btn btn-primary" type="submit" name="enregistrer"
+                                                class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Enregistrer</button>
                                                 
+                                                <button class="col-6 btn btn-danger" type="submit" name="supprimer"
+                                                class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Supprimer</button>
+
+                                          
+
+                                           
+                                            <button class="col-3 btn btn-secondary" type="submit" name="retour"
+                                                class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Retour</button>
+                                               
+
+                                               
 
                     
 
                                         </div>
                                     </div>
 
+  							  </form>
+                                    
 
-                                    <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
-                                            class="fw-bold text-body"><u>Login here</u></a></p>
-
-                                </form>
+                               
 
                             </div>
                         </div>

@@ -1,46 +1,52 @@
 package fr.eni.enchere.servlet;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
+
+import fr.eni.enchere.bll.BLLFactory;
+import fr.eni.enchere.bo.Utilisateur;
 
 /**
- * Servlet implementation class HomeServlet
+ * Servlet implementation class DeleteUserServlet
  */
-@WebServlet("/HomeServlet")
-public class HomeServlet extends HttpServlet {
+@WebServlet("/DeleteUserServlet")
+public class DeleteUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-  
-
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("/home.jsp");
-		rd.forward(request, response);
-		
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		HttpSession session = request.getSession();
+	    
+	    
+		
+		Utilisateur user= (Utilisateur) session.getAttribute("user");
+		
+		
+		
+
+        session.setAttribute("user", user);
+	
+	
+	BLLFactory.getInstance().getUtilisaterManager().delete(user.getNoUtilisateur());
+	response.sendRedirect("LoginServlet");
+		
 	}
 
 }

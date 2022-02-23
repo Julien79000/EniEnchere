@@ -50,7 +50,7 @@
                     <p>Ville  :   ${user.ville }</p>
                             
            
-            	<a href="<%=request.getContextPath()%>/modifierProfil">
+            	<a href="<%=request.getContextPath()%>/ProfilModify">
             <button type="submit" value="modifier" name="modifier" style="text-align: center;" >Modifier</button>					
             	</a>
 			

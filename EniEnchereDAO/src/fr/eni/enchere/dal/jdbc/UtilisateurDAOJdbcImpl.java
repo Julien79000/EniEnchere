@@ -17,23 +17,20 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	private static final String sqlInsert = "INSERT into utilisateurs(pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 	private static final String sqlUpdate = "UPDATE utilisateurs set pseudo=?,nom=?,prenom=?,email=?,telephone=?,rue=?,code_postal=?,ville=?,mot_de_passe=?,credit=?,administrateur=? where no_utilisateur=?";
 	private static final String sqlSelectById = "SELECT no_utilisateur, pseudo, nom,prenom, email, telephone, rue, code_postal, ville, mot_de_passe,credit,administrateur " +
-			" from utilisateurs WHERE no_utilisateur = ?";
+												" from utilisateurs WHERE no_utilisateur = ?";
 	private static final String sqlSelectByIdentifiant = "SELECT no_utilisateur, pseudo, nom,prenom, email, telephone, rue, code_postal, ville, mot_de_passe,credit,administrateur " +
-			" from utilisateurs WHERE email = ?";
+														 " from utilisateurs WHERE email = ?";
 	private static final String sqlSelectAll = "SELECT no_utilisateur, pseudo, nom,prenom, email, telephone, rue, code_postal, ville, mot_de_passe,credit,administrateur " +
-			" from utilisateurs";
+			                   				   " from utilisateurs";
 	private static final String sqlSelectByLogin = "select no_utilisateur, pseudo, nom, prenom, email" +
-			" from UTILISATEURS where email = ? AND mot_de_passe = ?";
+			                                       " from UTILISATEURS where email = ? AND mot_de_passe = ?";
 	private static final String sqlDelete = "DELETE from utilisateurs where no_utilisateur=?";
-
-	
-	
 	
 	public boolean insertUser(Utilisateur data) throws DALException {
+		
 		Connection cnx = null;
 		PreparedStatement rqt = null;
 		boolean success = false;
-
 		
 		try {
 			cnx=JdbcTools.getConnection();
@@ -60,7 +57,6 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 			}
 			
-		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -79,9 +75,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 		}
 		return success;
-		
-		
-		
+	
 	}
 	
 	@Override
@@ -91,7 +85,6 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		ResultSet rs = null;
 		Utilisateur user = null;
 		boolean success = false;
-		
 		
 		try {
 			cnx=JdbcTools.getConnection();
@@ -127,8 +120,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		
 		return success;
 	}
-	
-	
+		
 	public Utilisateur selectById(int id) {
 		Connection cnx=null;
 		PreparedStatement rqt=null;
@@ -156,6 +148,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 						rs.getInt("administrateur"));
 				
 			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -198,13 +191,9 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			rqt.setInt(10, data.getCredit());
 			rqt.setInt(11,data.getAdministrateur());
 			rqt.setInt(12,data.getNoUtilisateur());
-
 			
 			rqt.executeUpdate();
 			
-				
-			
-		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -251,7 +240,6 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 		}		
 		
-		
 	}
 	public List<Utilisateur> selectByMarque(String codePostal) throws DALException {
 		// TODO Auto-generated method stub
@@ -260,10 +248,10 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	@Override
 	public List<Utilisateur> selectAll() throws DALException {
-		Connection cnx=null;
-		Statement rqt=null;
-		ResultSet rs=null;
-		List<Utilisateur> liste=new ArrayList<Utilisateur>();
+		   Connection cnx=null;
+		   Statement rqt=null;
+		   ResultSet rs=null;
+		   List<Utilisateur> liste=new ArrayList<Utilisateur>();
 		
 		try {
 			cnx=JdbcTools.getConnection();
@@ -306,15 +294,15 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			}
 		}
 		
-		
 		return liste;
+		
 	}
 	
 	public Utilisateur selectByIdentifiant(String identifiant) {
-		Connection cnx=null;
-		PreparedStatement rqt=null;
-		ResultSet rs=null;
-		Utilisateur user=null;
+			Connection cnx=null;
+			PreparedStatement rqt=null;
+			ResultSet rs=null;
+			Utilisateur user=null;
 		
 		try {
 			cnx=JdbcTools.getConnection();
@@ -337,10 +325,11 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 						rs.getInt("administrateur"));
 				
 			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				if (rs != null){
 					rs.close();
@@ -356,19 +345,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			}
 
 		}
-		
-		return user;
+		return user;	
 	}
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

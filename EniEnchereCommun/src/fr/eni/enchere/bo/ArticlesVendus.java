@@ -16,13 +16,12 @@ public class ArticlesVendus {
 	private Enchere concerne;
 	private Categorie categorie;
 	
-	
 	public ArticlesVendus() {
 		super();
 	}
 	
-	public ArticlesVendus(int noArticle, String nomArticle, String description, LocalDate dateDebutEmbauche,
-			LocalDate dateFinEmbauche, int miseAPrix, int prixVente, String etatVente, Retrait lieuRetrait) {
+	public ArticlesVendus(int noArticle, String nomArticle, String description, LocalDate dateDebutEmbauche, 
+						  LocalDate dateFinEmbauche, int miseAPrix, int prixVente, String etatVente, Retrait lieuRetrait) {
 		super();
 		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
@@ -35,10 +34,8 @@ public class ArticlesVendus {
 		this.lieuRetrait = lieuRetrait;
 	}
 	
-	
-
 	public ArticlesVendus(String nomArticle, String description, LocalDate dateDebutEmbauche, LocalDate dateFinEmbauche,
-			int miseAPrix, int prixVente, Utilisateur utilisateur, Categorie categorie) {
+			              int miseAPrix, int prixVente, Utilisateur utilisateur, Categorie categorie) {
 		super();
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -51,7 +48,7 @@ public class ArticlesVendus {
 	}
 
 	public ArticlesVendus(String nomArticle, String description, LocalDate dateDebutEmbauche, LocalDate dateFinEmbauche,
-			int miseAPrix, int prixVente, String etatVente, Retrait lieuRetrait) {
+			              int miseAPrix, int prixVente, String etatVente, Retrait lieuRetrait) {
 		super();
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -120,21 +117,18 @@ public class ArticlesVendus {
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
-
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
 	}
 	public Enchere getConcerne() {
 		return concerne;
 	}
-
 	public void setConcerne(Enchere concerne) {
 		this.concerne = concerne;
 	}
 	public Categorie getCategorie() {
 		return categorie;
 	}
-
 	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
 	}
@@ -146,13 +140,5 @@ public class ArticlesVendus {
 				+ miseAPrix + ", prixVente=" + prixVente + ", etatVente=" + etatVente + ", lieuRetrait=" + lieuRetrait
 				+ "]";
 	}
-
-	
-
-	
-
-	
-	
-	
 	
 }

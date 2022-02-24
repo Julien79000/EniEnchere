@@ -8,11 +8,9 @@ public class Enchere {
 	private ArticlesVendus article;
 	private Utilisateur utilisateur;
 	
-	
 	public Enchere() {
 		super();
 	}
-	
 	
 	public Enchere(LocalDate dateEnchere, int montant_enchere, ArticlesVendus article, Utilisateur utilisateur) {
 		super();
@@ -22,13 +20,11 @@ public class Enchere {
 		this.utilisateur = utilisateur;
 	}
 
-
 	public Enchere(LocalDate dateEnchere, int montant_enchere) {
 		super();
 		this.dateEnchere = dateEnchere;
 		this.montant_enchere = montant_enchere;
 	}
-
 
 	public LocalDate getDateEnchere() {
 		return dateEnchere;
@@ -55,13 +51,10 @@ public class Enchere {
 		this.utilisateur = utilisateur;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Enchere [article=" + article + ", dateEnchere=" + dateEnchere + ", montant_enchere=" + montant_enchere
-				+ ", utilisateur=" + utilisateur + "]";
+			   + ", utilisateur=" + utilisateur + "]";
 	}
 	
-	
-
 }

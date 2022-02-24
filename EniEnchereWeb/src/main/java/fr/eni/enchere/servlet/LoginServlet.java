@@ -42,16 +42,13 @@ public class LoginServlet extends HttpServlet {
 		String identifiant=request.getParameter("identifiant");
 		String motDePasse=request.getParameter("motDePasse");
 
-
-		
 		if(creerUnCompte!=null) {
 		
 		response.sendRedirect(request.getContextPath()+"/Register");
 		}
+		
 		boolean succes=false;
 		if(connexion!=null) {
-			
-			
 			
 			try {
 				
@@ -61,34 +58,24 @@ public class LoginServlet extends HttpServlet {
 				
 				Utilisateur user=BLLFactory.getInstance().getUtilisaterManager().selectByIdentifiant(identifiant);
 				
-				
-				
-				
 		        HttpSession session = request.getSession();
-		        
 		        
 		        session.setAttribute("user", user);
 		        session.setAttribute("identifiant", identifiant);
 		        
-					
 			    response.sendRedirect("HomeServlet");
-
-				
-
+			    
 			}
 			
 			else {
 			    response.sendRedirect("LoginServlet");
-
-				
 			}
-			} catch (DALException e) {
+			}
+			
+			catch (DALException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			} 
-		
-	
+		} 	
 	}
-
 }

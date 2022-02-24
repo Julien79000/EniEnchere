@@ -14,13 +14,13 @@ import javax.servlet.http.HttpSession;
  * Servlet implementation class Deconnexion
  */
 @WebServlet("/Deconnexion")
-public class Deconnexion extends HttpServlet {
+public class ServletDeconnexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Deconnexion() {
+    public ServletDeconnexion() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,10 +34,8 @@ public class Deconnexion extends HttpServlet {
 		session.removeAttribute("user");
 		
 		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("/home.jsp");
+		rd = request.getRequestDispatcher("/Home.jsp");
 		rd.forward(request, response);
-		
-		
 	}
 
 	/**

@@ -19,29 +19,23 @@ import fr.eni.enchere.bo.Utilisateur;
  */
 @WebServlet("/ProfilServlet")
 public class ProfilServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-       
-   
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	HttpSession session=request.getSession();
-	
-	String id=(String) session.getAttribute("identifiant");
-	
-	
-	Utilisateur user =BLLFactory.getInstance().getUtilisaterManager().selectByIdentifiant(id);
-	
-	
-	request.setAttribute("user", user);
-	
-	
-	getServletContext().getRequestDispatcher("/AfficherProfil.jsp").forward(request, response);
-	
-	
-	
-	
+		HttpSession session=request.getSession();
+
+		String id=(String) session.getAttribute("identifiant");
+
+		Utilisateur user =BLLFactory.getInstance().getUtilisaterManager().selectByIdentifiant(id);
+
+		request.setAttribute("user", user);
+
+		getServletContext().getRequestDispatcher("/AfficherProfil.jsp").forward(request, response);
+
 	}
 
 	/**

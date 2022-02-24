@@ -17,22 +17,15 @@ import javax.websocket.Session;
 @WebServlet("/HomeServlet")
 public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-  
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 		RequestDispatcher rd = null;
 		rd = request.getRequestDispatcher("/home.jsp");
-		rd.forward(request, response);
-		
+		rd.forward(request, response);	
 	}
 
 	/**

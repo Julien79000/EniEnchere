@@ -96,10 +96,10 @@
                                         <!-- Boutons créer et annuler -->
                                         <div class="container-fluid">
                                             <div class="row">
-                                                <button class="col-6 btn btn-primary" type="submit"
+                                                <button class="col-6 btn btn-primary" type="submit" name="ceer"
                                                     class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Créer</button>
 
-                                                <button class="col-6 btn btn-secondary" type="submit"
+                                                <button class="col-6 btn btn-secondary" type="submit" name="annuler"
                                                     class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Annuler</button>
                                             </div>
                                         </div>

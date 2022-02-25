@@ -33,7 +33,7 @@ public class DeleteUserServlet extends HttpServlet {
 	session.removeAttribute("user");
 	session.invalidate();
 	
-	RequestDispatcher dispatcher = request.getRequestDispatcher("/Home.jsp");
+	RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
 	dispatcher.forward(request, response);
 	}
 

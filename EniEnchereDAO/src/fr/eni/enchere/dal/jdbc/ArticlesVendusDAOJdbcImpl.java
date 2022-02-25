@@ -30,7 +30,7 @@ public class ArticlesVendusDAOJdbcImpl implements ArticleVenduDAO {
 	
 	private static final String sqlSelectById = "SELECT * from ARTICLES_VENDUS INNER JOIN UTILISATEURS ON (ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur) INNER JOIN CATEGORIES ON (ARTICLES_VENDUS.no_categorie = CATEGORIES.no_categorie) WHERE ARTICLES_VENDUS.no_article = ?";
 	private static final String sqlSelectByCategorie = "SELECT * from ARTICLES_VENDUS INNER JOIN UTILISATEURS ON (ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur) INNER JOIN CATEGORIES ON (ARTICLES_VENDUS.no_categorie = CATEGORIES.no_categorie) WHERE ARTICLES_VENDUS.no_categorie = ?";
-	private static final String sqlSelectAll="SELECT * from ARTICLES_VENDUS";
+	private static final String sqlSelectAll="SELECT * from ARTICLES_VENDUS INNER JOIN UTILISATEURS ON (ARTICLES_VENDUS.no_utilisateur = UTILISATEURS.no_utilisateur) INNER JOIN CATEGORIES ON (ARTICLES_VENDUS.no_categorie = CATEGORIES.no_categorie)";
 	
 	
 	
@@ -260,7 +260,7 @@ public class ArticlesVendusDAOJdbcImpl implements ArticleVenduDAO {
 				art=new ArticlesVendus(rs.getInt("no_article"),
 						rs.getString("nom_article"),
 						rs.getString("description"),
-						rs.getDate("date_debut_enchere").toLocalDate(),
+						rs.getDate("date_debut_encheres").toLocalDate(),
 						rs.getDate("date_fin_encheres").toLocalDate(),
 						rs.getInt("prix_initial"),
 						rs.getInt("prix_vente"));

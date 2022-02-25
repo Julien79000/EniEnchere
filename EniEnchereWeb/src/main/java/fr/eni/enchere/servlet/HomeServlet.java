@@ -15,6 +15,7 @@ import javax.websocket.Session;
 import fr.eni.enchere.bll.BLLFactory;
 import fr.eni.enchere.bo.ArticlesVendus;
 import fr.eni.enchere.bo.Categorie;
+import fr.eni.enchere.bo.Retrait;
 import fr.eni.enchere.dal.DALException;
 
 /**
@@ -29,16 +30,17 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<ArticlesVendus> art=null;
+		List<ArticlesVendus> articlesList =null;
 		
 		try {
-			art=BLLFactory.getInstance().getArticleVenduManager().selectAll();
+			articlesList=BLLFactory.getInstance().getArticleVenduManager().selectAll();
+
 		} catch (DALException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
-		request.setAttribute("article", art);
+		request.setAttribute("articlesList", articlesList);
 		
 		
 		List<Categorie>listeCategories=null;

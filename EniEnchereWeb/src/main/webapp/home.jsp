@@ -40,15 +40,17 @@
 									    </div>
 									</form>
 								
-									<c:forEach var="art" items="${art}">
+									<c:forEach items="${articlesList}" var="art">
 									
-									    <p>Nom : ${art.nomArticle}</p>
-									    <p>Prenom : ${art.prenom }</p>
-									    <p>Email : ${user.email }</p>
-									    <p>Telephone : ${user.telephone }</p>
-									    <p>Rue : ${user.rue} </p>
-									    <p>CodePostal :${user.codePostal}</p>
-									    <p>Ville : ${user.ville }</p>
+									    <p><u>Nom de l'article : </u> ${art.nomArticle}</p>
+									    <p><u>Prix :</u> ${art.description}</p>
+									    <p><u>Date fin de l 'enchère :</u>  ${art.dateFinEmbauche}</p>
+									    <p>Retrait : on a pas eu le temps pour finir </p>
+									 <p>------------------------------------------------------</p>
+									    
+									    
+									    
+									    
 									</c:forEach>
 								
 									<c:choose>

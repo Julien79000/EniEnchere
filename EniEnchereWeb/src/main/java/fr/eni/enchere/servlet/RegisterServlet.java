@@ -40,7 +40,7 @@ public class RegisterServlet extends HttpServlet {
 		
 		
 		HashMap<String, String> liste = new HashMap<String, String>();
-		String [] parametres= new String [] {"pseudo","nom","prenom","email","telephone","rue","codePostal","ville","motDePasse"};
+		String [] parametres= new String [] {"pseudo","nom","prenom","email","telephone","rue","codePostal","ville","motDePasse","creer","annuler"};
 		
 		
 		for ( String param : parametres) {
@@ -48,6 +48,8 @@ public class RegisterServlet extends HttpServlet {
 			liste.put(param, request.getParameter(param));
 			
 		}
+		
+		
 		
 		
 		Utilisateur user = new Utilisateur(-1,liste.get("pseudo"),
@@ -66,6 +68,12 @@ public class RegisterServlet extends HttpServlet {
 		if (reponse.getCodeResponse() == EniEnchereConstantes.CODE_SUCCESS) {
 			// Redirection accceil
 			response.sendRedirect("LoginServlet");
+		}
+		String annuler = null;
+		if(annuler.equals(request.getParameter("annuler"))) {
+			RequestDispatcher rd = null;
+			rd = request.getRequestDispatcher("/LoginPage.jsp");
+			rd.forward(request, response);			
 		}
 		else {
 			// Error

@@ -77,6 +77,12 @@ public class ProfilModify extends HttpServlet {
 			user.setPrenom(liste.get("prenom"));
 			user.setNom(liste.get("nom"));
 			user.setEmail(liste.get("email"));
+			user.setTelephone(Integer.parseInt(liste.get("telephone")));
+			user.setRue(liste.get("rue"));
+			user.setCodePostal(liste.get("codePostal"));
+			user.setVille(liste.get("ville"));
+			user.setMotDePasse(liste.get("motDePasse"));
+
 			
 	        session.setAttribute("user", user);
 			

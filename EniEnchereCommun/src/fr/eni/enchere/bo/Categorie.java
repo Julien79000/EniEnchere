@@ -13,7 +13,6 @@ public class Categorie {
 
 	private List<ArticlesVendus> categorieArticle;
 	
-	
 	public Categorie() {
 		super();
 	}
@@ -23,7 +22,6 @@ public class Categorie {
 		this.noCategorie = noCategorie;
 		this.libelle = libelle;
 	}
-	
 
 	public Categorie(int noCategorie) {
 		super();
@@ -37,7 +35,6 @@ public class Categorie {
 		this.libelle = libelle;
 		this.categorieArticle = categorieArticle;
 	}
-	
 
 	public Categorie(int noCategorie, String libelle, List<ArticlesVendus> categorieArticle) {
 		super();
@@ -45,7 +42,6 @@ public class Categorie {
 		this.libelle = libelle;
 		this.categorieArticle = categorieArticle;
 	}
-	
 
 	public int getNoCategorie() {
 		return noCategorie;
@@ -72,6 +68,4 @@ public class Categorie {
 				+ categorieArticle + "]";
 	}
 	
-	
-
 }

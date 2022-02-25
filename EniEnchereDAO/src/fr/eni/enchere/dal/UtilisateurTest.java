@@ -8,7 +8,7 @@ import fr.eni.enchere.bo.Utilisateur;
 public class UtilisateurTest {
 
 	public static void main(String[] args) {
-		
+
 		UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
 		CategorieDAO categoriedao = DAOFactory.getCategorieDAO();
 
@@ -20,14 +20,14 @@ public class UtilisateurTest {
 					
 					//Ajout d'un utilisateur a la BDD
 					utilisateurDAO.insertUser(user1);
-					System.out.println("Article ajouté  : " + user1.toString() );
+					System.out.println("Article ajoutï¿½  : " + user1.toString() );
 					
 					
 					//Modification du nom d'un utilisateur dans la BDD
 					user1.setNom("SAKHER");
 					
 					utilisateurDAO.update(user1);
-					System.out.println("Article modifié : " + user1.toString() );
+					System.out.println("Article modifiï¿½ : " + user1.toString() );
 				
 					
 					// Supression d'un utilisateur de la BDD
@@ -39,14 +39,14 @@ public class UtilisateurTest {
 					
 					List<Utilisateur> users = null;
 					users = utilisateurDAO.selectAll();
-					System.out.println("Sélection de tous les articles  : " + users.toString() );
+					System.out.println("Sï¿½lection de tous les articles  : " + users.toString() );
 					
 					
 					
 					List<Categorie> cat = null;
 					cat = categoriedao.selectAll();
 
-					System.out.println("Sélection de tous les articles  : " + cat.toString() );
+					System.out.println("Sï¿½lection de tous les articles  : " + cat.toString() );
 
 					
 					
@@ -56,7 +56,7 @@ public class UtilisateurTest {
 				}
 				
 				Utilisateur user2 = utilisateurDAO.selectByIdentifiant("julien@gmail.com");
-				System.out.println("Sélection de l'article par identifiant  : " + user2.toString() );
+				System.out.println("Sï¿½lection de l'article par identifiant  : " + user2.toString() );
 				
 				
 				
@@ -65,12 +65,47 @@ public class UtilisateurTest {
 				
 				
 
+			//Ajout d'un utilisateur a la BDD
+			utilisateurDAO.insertUser(user1);
+			System.out.println("Article ajoutï¿½  : " + user1.toString() );
 
 
+			//Modification du nom d'un utilisateur dans la BDD
+			user1.setNom("SAKHER");
 
-				
+			utilisateurDAO.update(user1);
+			System.out.println("Article modifiï¿½ : " + user1.toString() );
+
+
+			// Supression d'un utilisateur de la BDD
+			utilisateurDAO.delete(12);
+
+
+			//Selection de tous les utilisateurs dans la BDD
+			List<Utilisateur> users = null;
+			users = utilisateurDAO.selectAll();
+			System.out.println("Sï¿½lection de tous les articles  : " + users.toString() );
 			
-			
-					
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Utilisateur user2 = utilisateurDAO.selectByIdentifiant("julien@gmail.com");
+		
+		System.out.println("Sï¿½lection de l'article par identifiant  : " + user2.toString() );
+
+
+
+
+
+
+
+
+
+
+
+
+
 	}
 }

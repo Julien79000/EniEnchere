@@ -14,6 +14,11 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/EniEnchereBLL"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/EniEnchereCommun"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/EniEnchereCommun">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/EniEnchereDAO"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

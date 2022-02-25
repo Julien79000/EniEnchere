@@ -1,5 +1,7 @@
 package fr.eni.enchere.dal.jdbc;
 
+
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,11 +14,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+
+
 import fr.eni.enchere.bo.ArticlesVendus;
 import fr.eni.enchere.bo.Categorie;
 import fr.eni.enchere.bo.Utilisateur;
 import fr.eni.enchere.dal.ArticleVenduDAO;
 import fr.eni.enchere.dal.DALException;
+
+
 
 public class ArticlesVendusDAOJdbcImpl implements ArticleVenduDAO {
 	
@@ -53,36 +59,40 @@ public class ArticlesVendusDAOJdbcImpl implements ArticleVenduDAO {
 			
 			int nbRows = rqt.executeUpdate();
 			if(nbRows == 1){
-				ResultSet rs = rqt.getGeneratedKeys();
-				if(rs.next()){
-					a.setNoArticle(rs.getInt(1));
-				}
-				success=true;
-
+			ResultSet rs = rqt.getGeneratedKeys();
+			if(rs.next()){
+			a.setNoArticle(rs.getInt(1));
+			}
+			success=true;
+			
+			
+			
 			}
 			
-		
-		} catch (SQLException e) {
+			
+			} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		finally {
-			try {
-				if (rqt != null){
-					rqt.close();
-				}
-				if(cnx!=null){
-					cnx.close();
-				}
-			} catch (SQLException e) {
-				throw new DALException("close failed - ", e);
 			}
-
+			finally {
+			try {
+			if (rqt != null){
+			rqt.close();
+			}
+			if(cnx!=null){
+			cnx.close();
+			}
+			} catch (SQLException e) {
+			throw new DALException("close failed - ", e);
+			}
+			
+	
+	
 		}
 		return success;
-		
-		
-		
+	
+	
+	
 	}
 	
 	public ArticlesVendus selectById(int id) {
@@ -307,5 +317,7 @@ public class ArticlesVendusDAOJdbcImpl implements ArticleVenduDAO {
 	
 	
 	
+
+
 
 }

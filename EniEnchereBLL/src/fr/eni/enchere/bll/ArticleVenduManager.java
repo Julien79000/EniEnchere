@@ -24,6 +24,7 @@ public class ArticleVenduManager {
 		return DAOFactory.getArticleVenduDAO().selectAll();
 	}
 		
+	public ArticleVenduManager() {
 		
 	}
 

@@ -6,10 +6,8 @@ import java.sql.SQLException;
 
 import fr.eni.enchere.dal.Settings;
 
-
 public class JdbcTools {
 
-	
 	private static  String urldb;
 	private static String userdb;
 	private static String passworddb;
@@ -27,16 +25,13 @@ public class JdbcTools {
 		System.out.println("urldb="+urldb+";userdb="+userdb+";passworddb="+passworddb);
 	}
 	
-	
-	
 	public static Connection getConnection() throws SQLException{
 		String url = String.format("%s;user=%s;password=%s;encrypt=true;trustServerCertificate=true", urldb, userdb, passworddb);  
 		Connection cnx = DriverManager.getConnection(url);
 		
 		return cnx;
+		
 	}
 	
-
-
 }
 

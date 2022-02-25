@@ -5,6 +5,7 @@ import java.util.Properties;
 
 
 public class Settings {
+	
 	private static Properties properties;
 	
 	static {
@@ -14,10 +15,11 @@ public class Settings {
 		
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		  }
 	}
 	
-	public static String getProperty(String key){
+	public static String getProperty(String key) {
+		
 		String parametre = properties.getProperty(key,null);
 		return parametre;
 	}

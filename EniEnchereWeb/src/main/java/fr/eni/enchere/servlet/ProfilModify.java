@@ -38,9 +38,7 @@ public class ProfilModify extends HttpServlet {
 		
 		String id=(String) session.getAttribute("identifiant");
 		
-		
 		Utilisateur user =BLLFactory.getInstance().getUtilisaterManager().selectByIdentifiant(id);
-		
 		
 		request.setAttribute("user", user);
 		
@@ -52,6 +50,7 @@ public class ProfilModify extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 	String retour=request.getParameter("retour");
 	String enregistrer=request.getParameter("enregistrer");
 	String supprimer=request.getParameter("supprimer");
@@ -59,10 +58,6 @@ public class ProfilModify extends HttpServlet {
 	HttpSession session = request.getSession();
 	
 	Utilisateur user= (Utilisateur) session.getAttribute("user");
-
-	
-
-
 	
 	String choix="";
 	
@@ -70,42 +65,35 @@ public class ProfilModify extends HttpServlet {
 		response.sendRedirect("HomeServlet");
 	}
 	
-
 	if(choix.equals(enregistrer)) {
-		
 
 		HashMap<String, String> liste = new HashMap<String, String>();
 		String [] parametres= new String [] {"pseudo","nom","prenom","email","telephone","rue","codePostal","ville","motDePasse"};
 		
-		
-		for ( String param : parametres) {
-			
+		for (String param : parametres) {
 			liste.put(param, request.getParameter(param));
-			
 		}
-		
 		
 		user.setPseudo(liste.get("pseudo"));
 		
 		
-		/*= new Utilisateur(liste.get("pseudo"),
+		Utilisateur user2 = new Utilisateur(liste.get("pseudo"),
 				liste.get("nom"),
 				liste.get("prenom"),liste.get("email"),Integer.parseInt(liste.get("telephone")),liste.get("rue"),
 				liste.get("codePostal"),liste.get("ville"),liste.get("motDePasse"),0,0			
 				
-				);*/
+				);
 		
 	        session.setAttribute("user", user);
-		
 		
 		BLLFactory.getInstance().getUtilisaterManager().update(user);
 		response.sendRedirect("HomeServlet");
 
 	}
-	if(choix.equals(supprimer)) {
-		response.sendRedirect("DeleteUserServlet");
-	}
 	
+		if(choix.equals(supprimer)) {
+			response.sendRedirect("DeleteUserServlet");
+		}
 	
 	}
 

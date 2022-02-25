@@ -19,26 +19,21 @@ import fr.eni.enchere.bo.Utilisateur;
 @WebServlet("/DeleteUserServlet")
 public class DeleteUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-
 		HttpSession session = request.getSession();
 		Utilisateur user= (Utilisateur) session.getAttribute("user");
-		
-       
-	
+
 	BLLFactory.getInstance().getUtilisaterManager().delete(user.getNoUtilisateur());
 	
 	session.removeAttribute("user");
 	session.invalidate();
 	
-	RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
+	RequestDispatcher dispatcher = request.getRequestDispatcher("/Home.jsp");
 	dispatcher.forward(request, response);
 	}
 
@@ -48,12 +43,7 @@ public class DeleteUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 				doGet(request, response);
-		
-	
-	 
-	 
-	 
-		
+
 	}
 
 }

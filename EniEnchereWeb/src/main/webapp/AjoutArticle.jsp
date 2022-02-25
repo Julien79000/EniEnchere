@@ -11,7 +11,7 @@
                             
                             <h3>Votre article a été ajouté avec succé</h3>
                             
-                            <a href="home.jsp">Cliquer ici pour revenir a la page d'acceuil</a>
+                            <a href="HomeServlet">Cliquer ici pour revenir a la page d'acceuil</a>
                             
               
 

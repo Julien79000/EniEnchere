@@ -38,7 +38,7 @@ public class ServletDeconnexion extends HttpServlet {
 		
 		HttpSession session=request.getSession();
 		session.removeAttribute("user");
-List<Categorie>listeCategories=null;
+		List<Categorie>listeCategories=null;
 		
 		try {
 			listeCategories=BLLFactory.getInstance().getCategorieManager().selectAll();
@@ -51,7 +51,7 @@ List<Categorie>listeCategories=null;
 		request.setAttribute("listeCategories", listeCategories);
 		
 		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("/Home.jsp");
+		rd = request.getRequestDispatcher("/home.jsp");
 		rd.forward(request, response);
 	}
 

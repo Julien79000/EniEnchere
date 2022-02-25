@@ -27,6 +27,4 @@ public class ArticleVenduManager {
 	public ArticleVenduManager() {
 		
 	}
-
-
-
+}

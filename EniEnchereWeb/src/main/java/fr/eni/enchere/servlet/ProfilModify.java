@@ -43,7 +43,6 @@ public class ProfilModify extends HttpServlet {
 		request.setAttribute("user", user);
 		
 		getServletContext().getRequestDispatcher("/Profil.jsp").forward(request, response);
-
 	}
 
 	/**
@@ -51,45 +50,40 @@ public class ProfilModify extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	String retour=request.getParameter("retour");
-	String enregistrer=request.getParameter("enregistrer");
-	String supprimer=request.getParameter("supprimer");
-	
-	HttpSession session = request.getSession();
-	
-	Utilisateur user= (Utilisateur) session.getAttribute("user");
-	
-	String choix="";
-	
-	if(choix.equals(retour)) {
-		response.sendRedirect("HomeServlet");
-	}
-	
-	if(choix.equals(enregistrer)) {
-
-		HashMap<String, String> liste = new HashMap<String, String>();
-		String [] parametres= new String [] {"pseudo","nom","prenom","email","telephone","rue","codePostal","ville","motDePasse"};
+		String retour=request.getParameter("retour");
+		String enregistrer=request.getParameter("enregistrer");
+		String supprimer=request.getParameter("supprimer");
 		
-		for (String param : parametres) {
-			liste.put(param, request.getParameter(param));
+		HttpSession session = request.getSession();
+		
+		Utilisateur user= BLLFactory.getInstance().getUtilisaterManager().selectByIdentifiant((String) session.getAttribute("identifiant"));
+		
+		String choix="";
+		
+		if(choix.equals(retour)) {
+			response.sendRedirect("HomeServlet");
 		}
 		
-		user.setPseudo(liste.get("pseudo"));
-		
-		
-		Utilisateur user2 = new Utilisateur(liste.get("pseudo"),
-				liste.get("nom"),
-				liste.get("prenom"),liste.get("email"),Integer.parseInt(liste.get("telephone")),liste.get("rue"),
-				liste.get("codePostal"),liste.get("ville"),liste.get("motDePasse"),0,0			
-				
-				);
-		
+		if(choix.equals(enregistrer)) {
+	
+			HashMap<String, String> liste = new HashMap<String, String>();
+			String [] parametres= new String [] {"pseudo","nom","prenom","email","telephone","rue","codePostal","ville","motDePasse"};
+			
+			for (String param : parametres) {
+				liste.put(param, request.getParameter(param));
+			}
+			
+			user.setPseudo(liste.get("pseudo"));
+			user.setPrenom(liste.get("prenom"));
+			user.setNom(liste.get("nom"));
+			user.setEmail(liste.get("email"));
+			
 	        session.setAttribute("user", user);
-		
-		BLLFactory.getInstance().getUtilisaterManager().update(user);
-		response.sendRedirect("HomeServlet");
-
-	}
+			
+			BLLFactory.getInstance().getUtilisaterManager().update(user);
+			response.sendRedirect("HomeServlet");
+	
+		}
 	
 		if(choix.equals(supprimer)) {
 			response.sendRedirect("DeleteUserServlet");

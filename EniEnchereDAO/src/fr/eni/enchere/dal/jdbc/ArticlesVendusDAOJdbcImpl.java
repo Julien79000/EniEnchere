@@ -258,7 +258,7 @@ public class ArticlesVendusDAOJdbcImpl implements ArticleVenduDAO {
 			ArticlesVendus art=null;
 			while(rs.next()) {
 				art=new ArticlesVendus(rs.getInt("no_article"),
-						rs.getString("[nom_article"),
+						rs.getString("nom_article"),
 						rs.getString("description"),
 						rs.getDate("date_debut_enchere").toLocalDate(),
 						rs.getDate("date_fin_encheres").toLocalDate(),

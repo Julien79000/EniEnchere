@@ -40,7 +40,7 @@ public class RegisterServlet extends HttpServlet {
 		
 		
 		HashMap<String, String> liste = new HashMap<String, String>();
-		String [] parametres= new String [] {"pseudo","nom","prenom","email","telephone","rue","codePostal","ville","motDePasse","creer","annuler"};
+		String [] parametres= new String [] {"pseudo","nom","prenom","email","telephone","rue","codePostal","ville","motDePasse"};
 		
 		
 		for ( String param : parametres) {
@@ -69,12 +69,7 @@ public class RegisterServlet extends HttpServlet {
 			// Redirection accceil
 			response.sendRedirect("LoginServlet");
 		}
-		String annuler = null;
-		if(annuler.equals(request.getParameter("annuler"))) {
-			RequestDispatcher rd = null;
-			rd = request.getRequestDispatcher("/LoginPage.jsp");
-			rd.forward(request, response);			
-		}
+		
 		else {
 			// Error
 			response.sendRedirect("Register");

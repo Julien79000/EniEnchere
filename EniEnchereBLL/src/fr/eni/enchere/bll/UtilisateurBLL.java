@@ -7,6 +7,8 @@ import fr.eni.enchere.dal.DAOFactory;
 
 public class UtilisateurBLL {
 	
+	
+	
 	public boolean login(String username, String password) throws DALException {
 		return DAOFactory.getUtilisateurDAO().login(username, password);
 	}

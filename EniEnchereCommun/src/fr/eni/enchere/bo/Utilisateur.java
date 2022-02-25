@@ -19,6 +19,11 @@ public class Utilisateur {
 	private List<ArticlesVendus> vend;
 	private List<Enchere> encherit;
 	
+	
+	public Utilisateur(int noUtilisateur) {
+		super();
+		this.noUtilisateur = noUtilisateur;
+	}
 	public Utilisateur() {
 		super();
 	}

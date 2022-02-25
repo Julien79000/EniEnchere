@@ -1,6 +1,6 @@
 <nav>
                                                 <ul>
-                                                    <li><a href="">Vendre un article</a></li>
+                                                    <li><a href="<%=request.getContextPath()%>/ArticleAVendreServlet">Vendre un article</a></li>
                                                     <li><a href="<%=request.getContextPath()%>/ProfilServlet">Mon profil</a></li>
                                                     <li><a href="<%=request.getContextPath()%>/Deconnexion">Déconnexion</a></li>
                                                 </ul>
@@ -51,21 +51,4 @@
 
 
                                     </div>
-                                    <aside class="row">
-                                        <p class="col-12">Filtres :</p>
-                                        <p class="row">Catégories
-                                        <form> class="col-8">
-                                            <SELECT name="nom" size="1">
-                                                <OPTION>lundi
-                                                <OPTION>mardi
-                                                <OPTION>mercredi
-                                                <OPTION>jeudi
-                                                <OPTION>vendredi
-                                            </SELECT>
-                                        </form>
-                                        </p>
-                                        <div class="row">
-                                            <input id="searchbar" onkeyup="search_animal()" type="text" name="search"
-                                                placeholder="Le nom de l'article contient">
-                                        </div>
-                                    </aside>
+                                   

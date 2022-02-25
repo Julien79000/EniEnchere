@@ -1,6 +1,7 @@
 package fr.eni.enchere.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
+
+import fr.eni.enchere.bll.BLLFactory;
+import fr.eni.enchere.bo.ArticlesVendus;
+import fr.eni.enchere.bo.Categorie;
+import fr.eni.enchere.dal.DALException;
 
 /**
  * Servlet implementation class HomeServlet
@@ -28,7 +34,32 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		List<ArticlesVendus> art=null;
 		
+		try {
+			art=BLLFactory.getInstance().getArticleVenduManager().selectAll();
+		} catch (DALException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		request.setAttribute("article", art);
+		
+		
+		List<Categorie>listeCategories=null;
+		
+		try {
+			listeCategories=BLLFactory.getInstance().getCategorieManager().selectAll();
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+		request.setAttribute("listeCategories", listeCategories);
+		
+		
+	
 		RequestDispatcher rd = null;
 		rd = request.getRequestDispatcher("/home.jsp");
 		rd.forward(request, response);
@@ -39,8 +70,12 @@ public class HomeServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		int categorie=Integer.parseInt(request.getParameter("categorie"));
+		
+		ArticlesVendus art=BLLFactory.getInstance().getArticleVenduManager().selectByCategorie(categorie);
+		
+		request.setAttribute("article", art);
+		
 	}
 
 }

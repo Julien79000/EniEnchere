@@ -57,8 +57,6 @@ public class ProfilModify extends HttpServlet {
 	String supprimer=request.getParameter("supprimer");
 	
 	HttpSession session = request.getSession();
-    
-    
 	
 	Utilisateur user= (Utilisateur) session.getAttribute("user");
 

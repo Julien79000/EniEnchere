@@ -3,20 +3,31 @@ package fr.eni.enchere.bo;
 import java.util.List;
 
 public class Retrait {
+	private int noArticle;
 	private String rue;
-	private int code_postal;
+	private String code_postal;
 	private String ville;
 	private List<ArticlesVendus> article;
 	
 	
-	public Retrait(String rue, int code_postal, String ville, List<ArticlesVendus> article) {
+	
+	
+	
+	public Retrait(int noArticle, String rue, String code_postal, String ville) {
+		super();
+		this.noArticle = noArticle;
+		this.rue = rue;
+		this.code_postal = code_postal;
+		this.ville = ville;
+	}
+	public Retrait(String rue, String code_postal, String ville, List<ArticlesVendus> article) {
 		super();
 		this.rue = rue;
 		this.code_postal = code_postal;
 		this.ville = ville;
 		this.article = article;
 	}
-	public Retrait(String rue, int code_postal, String ville) {
+	public Retrait(String rue, String code_postal, String ville) {
 		super();
 		this.rue = rue;
 		this.code_postal = code_postal;
@@ -32,10 +43,10 @@ public class Retrait {
 	public void setRue(String rue) {
 		this.rue = rue;
 	}
-	public int getCode_postal() {
+	public String getCode_postal() {
 		return code_postal;
 	}
-	public void setCode_postal(int code_postal) {
+	public void setCode_postal(String code_postal) {
 		this.code_postal = code_postal;
 	}
 	public String getVille() {
@@ -54,6 +65,12 @@ public class Retrait {
 	public String toString() {
 		return "Retrait [rue=" + rue + ", code_postal=" + code_postal + ", ville=" + ville + ", article=" + article
 				+ "]";
+	}
+	public int getNoArticle() {
+		return noArticle;
+	}
+	public void setNoArticle(int noArticle) {
+		this.noArticle = noArticle;
 	}
 	
 	

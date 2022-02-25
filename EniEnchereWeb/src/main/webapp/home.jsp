@@ -1,7 +1,10 @@
-<%@page import="fr.eni.enchere.bo.Utilisateur"%>
+<%@page import="fr.eni.enchere.bo.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
     <!DOCTYPE html>
-    <html lang="fr">
+    
+    <html lang="en">
 
     <head>
         <meta charset="UTF-8">
@@ -34,39 +37,49 @@
 
                                         </div>
                                     </header>
-                                    <aside class="row">
+                                    
                                         <p class="col-12">Filtres :</p>
-                                        <p class="row">Catégories
-                                        <FORM class="col-8">
-                                            <SELECT name="nom" size="1">
-                                                <OPTION>lundi
-                                                <OPTION>mardi
-                                                <OPTION>mercredi
-                                                <OPTION>jeudi
-                                                <OPTION>vendredi
-                                            </SELECT>
-                                        </FORM>
-                                        </p>
+                                         <label class="form-label" for="categorie">Catégorie : </label>
+                                         <form action="<%=request.getContextPath()%>//HomeServlet">
+                                       <select class="custom-select" id="categorie" name="categorie">
+                                       <option>Toutes</option>
+								    <c:forEach var="cat" items="${listeCategories}">
+								    	<option value="${cat.noCategorie}">${cat.libelle}</option>
+								    </c:forEach>
+								      
+								 </select>
                                         <div class="row">
-                                            <input id="searchbar" onkeyup="search_animal()" type="text" name="search"
+                                            <input id="searchbar" type="text" name="search"
                                                 placeholder="Le nom de l'article contient">
                                         </div>
                                         
-                                      
+                                        
+                                     </form>
+                                     
+                                     <c:forEach var="art" items="${art}">
+								    	 
+                    <p>Nom    :    ${art.nomArticle}</p>
+                    <p>Prenom :   ${art.prenom }</p>
+                    <p>Email  :   ${user.email }</p>
+                    <p>Telephone : ${user.telephone }</p>
+                    <p>Rue  :     ${user.rue} </p>
+                    <p>CodePostal :${user.codePostal}</p>
+                    <p>Ville  :   ${user.ville }</p>
+								    </c:forEach>
+                                     
+                                     
                                         
                                         
                                         
                                         
                                         
                                         </div>
-                                    </aside>
 
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
 
     </body>

@@ -1,16 +1,16 @@
 package fr.eni.enchere.bll;
 
-public class RetraitManager {
-	private static RetraitManager instance;
+import fr.eni.enchere.bo.Retrait;
+import fr.eni.enchere.dal.DALException;
+import fr.eni.enchere.dal.DAOFactory;
 
-	public static RetraitManager getInstance() {
-		if(instance == null) {
-			instance = new RetraitManager();
-		}
-		return instance;
+public class RetraitManager {
+	
+
+	public void insertRetrait(Retrait r) throws DALException {
+		
+		DAOFactory.getRetraitDAO().insertRetrait(r);
 	}
-	private RetraitManager() {
-		 
-	}
+
 
 }

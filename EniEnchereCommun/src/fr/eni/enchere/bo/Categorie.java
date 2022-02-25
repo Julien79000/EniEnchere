@@ -9,6 +9,7 @@ public class Categorie {
 		super();
 		this.libelle = libelle;
 	}
+	
 
 	private List<ArticlesVendus> categorieArticle;
 	
@@ -21,6 +22,13 @@ public class Categorie {
 		super();
 		this.noCategorie = noCategorie;
 		this.libelle = libelle;
+	}
+	
+
+	public Categorie(int noCategorie) {
+		super();
+		this.noCategorie = noCategorie;
+		
 	}
 	
 
